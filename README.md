@@ -2,7 +2,7 @@
 
 A comprehensive full-stack web application for managing inventory, customers, and orders. Built with modern technologies including FastAPI, React, PostgreSQL, and Docker for seamless deployment and scalability.
 
-## 🌟 Features
+## Features
 
 ### Core Functionality
 - **Product Management**: Create, read, update, and delete products with SKU tracking and inventory management
@@ -15,18 +15,18 @@ A comprehensive full-stack web application for managing inventory, customers, an
   - Responsive grid layout
 
 ### Advanced Features
-- ✅ Real-time search functionality for products and customers
-- ✅ Pagination support (10 items per page)
-- ✅ Stock validation and inventory tracking
-- ✅ Form validation with user feedback
-- ✅ Modal-based CRUD operations
-- ✅ Order details with nested items display
-- ✅ Stock status badges and indicators
-- ✅ Error handling and success notifications
-- ✅ Loading states and empty states
-- ✅ Responsive design with Tailwind CSS
+- Real-time search functionality for products and customers
+- Pagination support (10 items per page)
+- Stock validation and inventory tracking
+- Form validation with user feedback
+- Modal-based CRUD operations
+- Order details with nested items display
+- Stock status badges and indicators
+- Error handling and success notifications
+- Loading states and empty states
+- Responsive design with Tailwind CSS
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Framework**: FastAPI - Modern, fast web framework for building APIs
@@ -48,7 +48,7 @@ A comprehensive full-stack web application for managing inventory, customers, an
 - **Containerization**: Docker - Containerized deployment
 - **Orchestration**: Docker Compose - Multi-container orchestration
 
-## 📋 Project Structure
+## Project Structure
 
 ```
 inventory-order-management-system/
@@ -119,7 +119,7 @@ inventory-order-management-system/
 └── IMPLEMENTATION_SUMMARY.md       # Detailed implementation notes
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -170,7 +170,7 @@ npm install
 # Create .env file if needed for API configuration
 ```
 
-## 💻 Running the Application
+## Running the Application
 
 ### Option 1: Local Development (Without Docker)
 
@@ -221,7 +221,7 @@ Stop the services:
 docker-compose down
 ```
 
-## 📚 API Documentation
+## API Documentation
 
 Once the backend is running, access the interactive API documentation at:
 - **Swagger UI**: http://localhost:8000/docs
@@ -253,7 +253,7 @@ Once the backend is running, access the interactive API documentation at:
 #### Dashboard
 - `GET /dashboard/stats` - Get dashboard statistics
 
-## 🔧 Development
+## Development
 
 ### Frontend Commands
 
@@ -291,7 +291,7 @@ alembic upgrade head
 alembic downgrade -1
 ```
 
-## 🏗️ Database Schema
+## Database Schema
 
 ### Tables
 
@@ -300,7 +300,7 @@ alembic downgrade -1
 - **Orders**: Customer reference, order total, timestamps
 - **OrderItems**: Order reference, product reference, quantity, line total
 
-## 📦 Deployment
+## Deployment
 
 ### Docker Build
 
@@ -321,7 +321,7 @@ DATABASE_URL=postgresql://user:password@db:5432/inventory_db
 DEBUG=False
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Backend Tests
 ```bash
@@ -335,14 +335,14 @@ cd frontend
 npm run test
 ```
 
-## 📖 Additional Documentation
+## Additional Documentation
 
 - [Frontend README](frontend/FRONTEND_README.md) - Detailed frontend setup and component guide
 - [Components Documentation](frontend/COMPONENTS.md) - Detailed component API and usage
 - [Quick Reference](frontend/QUICK_REFERENCE.md) - Quick reference for common tasks
 - [Implementation Summary](IMPLEMENTATION_SUMMARY.md) - Complete implementation details
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Database Connection Issues
 - Ensure PostgreSQL is running
@@ -357,11 +357,7 @@ npm run test
 - Backend is configured to accept requests from all origins
 - Verify frontend is making requests to the correct backend URL
 
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -370,10 +366,6 @@ Contributions are welcome! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📞 Support
-
-For issues, questions, or suggestions, please open an issue on the GitHub repository.
 
 ---
 
