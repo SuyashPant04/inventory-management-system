@@ -15,3 +15,6 @@ Full-stack Inventory & Order Management System built using:
 - Inventory tracking
 - Dockerized setup
 - Deployment support
+
+
+##.\venv\Scripts\Activate.ps1
