@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.database import Base, engine
 from app.routes.product_routes import (
     router as product_router
 )
@@ -19,6 +20,8 @@ from app.routes.dashboard_routes import (
 
 app = FastAPI()
 
+# Create database tables
+Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
