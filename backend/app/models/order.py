@@ -16,4 +16,12 @@ class Order(Base):
 
     total_amount = Column(Float, nullable=False)
 
-    customer = relationship("Customer")
+    customer = relationship(
+    "Customer",
+    back_populates="orders"
+    )
+
+    items = relationship(
+        "OrderItem",
+        back_populates="order"
+    )
