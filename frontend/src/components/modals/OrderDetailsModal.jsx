@@ -1,4 +1,3 @@
-import Button from "../ui/Button";
 import Modal from "../ui/Modal";
 import Table from "../ui/Table";
 
@@ -97,13 +96,6 @@ function OrderDetailsModal({ isOpen, order, onClose }) {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Close Button */}
-        <div className="flex justify-end pt-4 border-t">
-          <Button variant="secondary" onClick={onClose}>
-            Close
-          </Button>
         </div>
       </div>
     </Modal>

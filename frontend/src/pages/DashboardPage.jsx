@@ -4,22 +4,28 @@ import Loader from "../components/ui/Loader";
 import Badge from "../components/ui/Badge";
 import EmptyState from "../components/ui/EmptyState";
 import dashboardService from "../services/dashboardService";
+import productService from "../services/productService";
 
 function DashboardPage() {
   const [stats, setStats] = useState(null);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchDashboardStats();
+    fetchDashboardData();
   }, []);
 
-  const fetchDashboardStats = async () => {
+  const fetchDashboardData = async () => {
     try {
       setLoading(true);
       setError(null);
-      const data = await dashboardService.getStats();
-      setStats(data);
+      const [statsData, productsData] = await Promise.all([
+        dashboardService.getStats(),
+        productService.getAll(),
+      ]);
+      setStats(statsData);
+      setProducts(productsData);
     } catch (err) {
       setError("Failed to load dashboard statistics");
       console.error(err);
@@ -27,6 +33,8 @@ function DashboardPage() {
       setLoading(false);
     }
   };
+
+
 
   if (loading) {
     return <Loader message="Loading dashboard..." />;
@@ -90,7 +98,7 @@ function DashboardPage() {
         <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200">
           <div className="text-center">
             <div className="text-4xl font-bold text-orange-600 mb-2">
-              {stats?.low_stock_products || 0}
+              {products.filter((p) => p.stock < 10).length}
             </div>
             <p className="text-orange-700 font-medium">Low Stock Items</p>
           </div>
@@ -108,10 +116,10 @@ function DashboardPage() {
       </div>
 
       {/* Low Stock Products Section */}
-      {stats?.low_stock_products_list && stats.low_stock_products_list.length > 0 && (
+      {products.filter((p) => p.stock < 10).length > 0 && (
         <Card title="⚠️ Low Stock Products">
           <div className="space-y-3">
-            {stats.low_stock_products_list.map((product) => (
+            {products.filter((p) => p.stock < 10).map((product) => (
               <div
                 key={product.id}
                 className="flex items-center justify-between p-4 bg-gray-50 rounded border border-gray-200 hover:bg-gray-100 transition"
@@ -139,10 +147,9 @@ function DashboardPage() {
       )}
 
       {/* Empty State for Low Stock */}
-      {!stats?.low_stock_products_list || stats.low_stock_products_list.length === 0 ? (
+      {products.filter((p) => p.stock < 10).length === 0 ? (
         <Card>
           <EmptyState
-            icon="✅"
             title="All Products in Stock"
             message="Great! All your products have healthy inventory levels."
           />
